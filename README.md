@@ -6,7 +6,6 @@ Check out the SQL queries here: [project_sql folder](/project_sql/)
 
 ### Curious About:
 What are the top-paying data analyst remote jobs?
-*/
 1. Top-paying data analyst jobs:
     * Remote
     * India
@@ -53,7 +52,8 @@ ORDER BY salary_year_avg DESC
 LIMIT 10;
 ```
 
-![Remote Jobs](images\1a.png)
+![Remote Jobs](images/1a.png)
+
 *This image was created using Pivot Table in Excel after exporting the results of the above query*
 
 #### b. India:
@@ -76,7 +76,9 @@ ORDER BY salary_year_avg DESC
 
 LIMIT 10;
 ```
-![Remote Jobs](images\1b.png)
+![Remote Jobs](images/1b.png)
+
+
 *This image was created using Pivot Table in Excel after exporting the results of the above query*
 
 ### 2. Skills For Top Paying Jobs:
@@ -112,7 +114,9 @@ INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
 ORDER BY salary_year_avg DESC;
 ```
 
-![skills_required](images\2a.png)
+![skills_required](images/2a.png)
+
+
 *This image was created using Pivot Table in Excel after exporting the results of the above query*
 
 #### b. India:
@@ -144,7 +148,9 @@ INNER JOIN skills_job_dim ON skills_job_dim.job_id=top_jobs.job_id
 INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
 ORDER BY salary_year_avg DESC;
 ```
-![skills_required_india](images\2b.png)
+![skills_required_india](images/2b.png)
+
+
 *This image was created using Pivot Table in Excel after exporting the results of the above query*
 ### 3. Most Demanded Skills:
 These were the top skills that were frequently demanded for the data analyst jobs, both remote and in India.
@@ -166,7 +172,9 @@ ORDER BY
 LIMIT 5;
 ```
 
-![top_demanded_skills_remote](images\3a.png)
+![top_demanded_skills_remote](images/3a.png)
+
+
 *This image was created using Pivot Table in Excel after exporting the results of the above query*
 
 #### b. India:
@@ -186,7 +194,8 @@ ORDER BY
     demand_count DESC
 LIMIT 5;
 ```
-![skills_required_india](images\3b.png)
+![skills_required_india](images/3b.png)
+
 
 *This image was created using Pivot Table in Excel after exporting the results of the above query*
 
