@@ -1,6 +1,6 @@
 # Introduction
 
-This project started with a mission: crack the code on the most lucrative data analyst skills. Inspired by Luke Barousse's insightful [SQL Course](https://lukebarousse.com/sql). I embarked on a data exploration to identify the top-paying skills for Data Analysts (both remote and in India)
+This project started with a mission: crack the code on the most lucrative data analyst skills. Inspired by Mr. Luke Barousse's insightful [SQL Course](https://lukebarousse.com/sql). I embarked on a data exploration to identify the top-paying skills for Data Analyst jobs (both remote and in India)
 
 Check out the SQL queries here: [project_sql folder](/project_sql/)
 
