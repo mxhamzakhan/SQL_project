@@ -175,7 +175,7 @@ LIMIT 5;
 ![top_demanded_skills_remote](images/3a.png)
 
 
-*This image was created using Pivot Table in Excel after exporting the results of the above query*
+*This image was created using Excel after exporting the results of the above query*
 
 #### b. India:
 ```sql
@@ -197,7 +197,7 @@ LIMIT 5;
 ![skills_required_india](images/3b.png)
 
 
-*This image was created using Pivot Table in Excel after exporting the results of the above query*
+*This image was created using Excel after exporting the results of the above query*
 
 ### 4. Skills for Top-Paying Jobs:
 These are the skills that were associated with highest paying jobs, both remote and in India.
