@@ -1,6 +1,5 @@
 /*
-Question: What are the most in-demand skills for remote data analysts roles?
-- Identify the top 5 in-demand skills for a data analyst.
+Question: What are the most in-demand skills for data analysts roles in India?
 */
 
 SELECT 
@@ -11,7 +10,7 @@ INNER JOIN skills_job_dim ON skills_job_dim.job_id=job_postings_fact.job_id
 INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
 WHERE 
     job_title_short='Data Analyst' AND
-    job_work_from_home=true
+    job_location='India'
 GROUP BY 
     skills
 ORDER BY

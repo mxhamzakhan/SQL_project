@@ -1,7 +1,5 @@
 /*
-Question: What skills are required for the top paying Data Analyst or Data Scientist jobs?
-- Use the top 10 highest-paying jobs from the first query
-- Add the specific skills required for these roles
+Question: What skills are required for the top paying remote Data Analyst jobs?
 */
 
 WITH top_jobs AS(
@@ -503,4 +501,3 @@ Based on job postings, here is the breakdown of the most demanded skills for dat
     "skills": "r"
   }
 ]*/
-
