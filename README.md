@@ -323,7 +323,7 @@ LIMIT 10;
 *These are the optimal skills along with their demand count and average salaries*
 
 # Conclusions:
-These are the insights that I drew from this analysis:
+### Insights:
 1. **Top-Paying Data Analyst Jobs:** The top paying remote Data Analyst job offers the highest average yearly salary of $650,000 while the top paying Data Analyst job in India offers the highest average yearly salary of $119,250
 
 2. **Skill For Top Paying Jobs:** Skills required for the top paying jobs for remote work and in India follow a pretty similar trend with SQL being the most sought after skill.
@@ -333,3 +333,6 @@ These are the insights that I drew from this analysis:
 4. **Skill with High Salaries:** Skills like PySpark, Databricks, GCP are in high demand for handling large datasets in the cloud.
 
 5. **Optimal Skills:** SQL is the most sought after skill in the whole market so it becomes the optimal skill for data analysts to maximise their worth when applying for jobs.
+
+### Closing thoughts: 
+Our journey through this analysis of data analyst job skills has illuminated a promising truth: **SQL stands as the cornerstone skill for effective communication with data**.
