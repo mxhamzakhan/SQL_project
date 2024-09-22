@@ -1,4 +1,6 @@
-# Introduction
+# Data Analyst Skills & Salary Insights
+
+## Introduction
 
 This project started with a mission: crack the code on the most lucrative data analyst skills. Inspired by Mr. Luke Barousse's insightful [SQL Course](https://lukebarousse.com/sql). I embarked on a data exploration to identify the top-paying skills for Data Analyst jobs (both remote and in India)
 
