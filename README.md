@@ -32,194 +32,52 @@ To navigate the data analyst job market, I enlisted a powerful toolkit:
 ### 1. Top Paying Data Analyst Jobs:
 I filtered top 10 paying data analyst jobs based on their average yearly salary while focusing on remote jobs and then I ran the same query again focusing on data analyst jobs in India.
 #### a. Remote:
-```sql
-SELECT
-    job_title,
-    name AS company_name,
-    salary_year_avg,
-    job_schedule_type,
-    job_posted_date:: DATE
-FROM 
-    job_postings_fact
-LEFT JOIN company_dim ON company_dim.company_id=job_postings_fact.company_id
-WHERE
-    job_title_short = 'Data Analyst' AND
-    job_location='Anywhere' AND
-    salary_year_avg IS NOT NULL
-
-ORDER BY salary_year_avg DESC
-
-LIMIT 10;
-```
 
 ![Remote Jobs](images/1a.png)
 
-*This image was created using Pivot Table in Excel after exporting the results of the above query*
+*This image was created using Pivot Table in Excel after exporting the results of its sql query*
 
 #### b. India:
-```sql
-SELECT 
-    job_title,
-    name AS company_name,
-    salary_year_avg,
-    job_schedule_type,
-    job_posted_date:: DATE
-FROM 
-    job_postings_fact
-LEFT JOIN company_dim ON company_dim.company_id=job_postings_fact.company_id
-WHERE
-    job_title_short = 'Data Analyst' AND
-    job_location='India' AND
-    salary_year_avg IS NOT NULL
 
-ORDER BY salary_year_avg DESC
-
-LIMIT 10;
-```
 ![Remote Jobs](images/1b.png)
 
-
-*This image was created using Pivot Table in Excel after exporting the results of the above query*
+*This image was created using Pivot Table in Excel after exporting the results of its sql query*
 
 ### 2. Skills For Top Paying Jobs:
 I ran the following queries to find out what are the leading skills required for top data analyst jobs, both remote and in India.
 
 #### a. Remote:
-```sql
-WITH top_jobs AS(
-    SELECT 
-        job_id,
-        job_title,
-        name AS company_name,
-        salary_year_avg
-    FROM 
-        job_postings_fact
-    LEFT JOIN company_dim ON company_dim.company_id=job_postings_fact.company_id
-    WHERE
-        job_title_short ='Data Analyst' AND
-        job_location='Anywhere' AND
-        salary_year_avg IS NOT NULL
-
-    ORDER BY salary_year_avg DESC
-
-    LIMIT 10
-    )
-
-SELECT 
-    top_jobs.*,
-    skills
-FROM top_jobs
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=top_jobs.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-ORDER BY salary_year_avg DESC;
-```
 
 ![skills_required](images/2a.png)
 
-
-*This image was created using Pivot Table in Excel after exporting the results of the above query*
+*This image was created using Pivot Table in Excel after exporting the results of its sql query*
 
 #### b. India:
-```sql
-WITH top_jobs AS(
-    SELECT 
-        job_id,
-        job_title,
-        name AS company_name,
-        salary_year_avg
-    FROM 
-        job_postings_fact
-    LEFT JOIN company_dim ON company_dim.company_id=job_postings_fact.company_id
-    WHERE
-        job_title_short ='Data Analyst' AND
-        job_location='India' AND
-        salary_year_avg IS NOT NULL
 
-    ORDER BY salary_year_avg DESC
-
-    LIMIT 10
-    )
-
-SELECT 
-    top_jobs.*,
-    skills
-FROM top_jobs
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=top_jobs.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-ORDER BY salary_year_avg DESC;
-```
 ![skills_required_india](images/2b.png)
 
+*This image was created using Pivot Table in Excel after exporting the results of its sql query*
 
-*This image was created using Pivot Table in Excel after exporting the results of the above query*
 ### 3. Most Demanded Skills:
 These were the top skills that were frequently demanded for the data analyst jobs, both remote and in India.
 #### a. Remote:
-```sql
-SELECT 
-    skills,
-    count(skills_job_dim.job_id) AS demand_count
-FROM job_postings_fact
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=job_postings_fact.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-WHERE 
-    job_title_short='Data Analyst' AND
-    job_work_from_home=true
-GROUP BY 
-    skills
-ORDER BY
-    demand_count DESC
-LIMIT 5;
-```
 
 ![top_demanded_skills_remote](images/3a.png)
 
-
-*This image was created using Excel after exporting the results of the above query*
+*This image was created using Excel after exporting the results of its sql query*
 
 #### b. India:
-```sql
-SELECT 
-    skills,
-    count(skills_job_dim.job_id) AS demand_count
-FROM job_postings_fact
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=job_postings_fact.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-WHERE 
-    job_title_short='Data Analyst' AND
-    job_location='India'
-GROUP BY 
-    skills
-ORDER BY
-    demand_count DESC
-LIMIT 5;
-```
+
 ![skills_required_india](images/3b.png)
 
 
-*This image was created using Excel after exporting the results of the above query*
+*This image was created using Excel after exporting the results of its sql query*
 
 ### 4. Skills for Top-Paying Jobs:
 These are the skills that were associated with highest paying jobs, both remote and in India.
 
 #### a. Remote:
-```sql
-SELECT 
-    skills,
-    ROUND(AVG(salary_year_avg),2) AS avg_salary
-FROM job_postings_fact
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=job_postings_fact.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-WHERE 
-    job_title_short='Data Analyst' AND
-    job_work_from_home=true AND
-    salary_year_avg IS NOT NULL
-GROUP BY 
-    skills
-ORDER BY
-    avg_salary DESC
-LIMIT 25;
-```
+
 | Skills        | Average Salary ($) | Skills        | Average Salary ($) |
 |---------------|----------------|---------------|----------------|
 | pyspark       | 208172.25      | datarobot     | 155485.50      |
@@ -243,23 +101,7 @@ Here is a breakdown of the results for the top paying skills for remote Data Ana
 
 
 #### b. India:
-```sql
-SELECT 
-    skills,
-    ROUND(AVG(salary_year_avg),2) AS avg_salary
-FROM job_postings_fact
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=job_postings_fact.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-WHERE 
-    job_title_short='Data Analyst' AND
-    job_location='India' AND
-    salary_year_avg IS NOT NULL
-GROUP BY 
-    skills
-ORDER BY
-    avg_salary DESC
-LIMIT 25;
-```
+
 
 | Skills       | Average Salary ($) | Skills       | Average Salary ($) |
 |--------------|----------------|--------------|----------------|
@@ -286,27 +128,6 @@ Here is a breakdown of the results for the top paying skills for remote Data Ana
 ### 5. Optimal Skills:
 The are the optimal skills that a data analyst must know while doing remote jobs.
 
-```sql
-SELECT
-    skills_dim.skills,
-    COUNT(skills_job_dim.job_id) AS demand_count,
-    ROUND(AVG(job_postings_fact.salary_year_avg),2) AS avg_salary
-FROM job_postings_fact
-INNER JOIN skills_job_dim ON skills_job_dim.job_id=job_postings_fact.job_id
-INNER JOIN skills_dim ON skills_dim.skill_id=skills_job_dim.skill_id
-WHERE 
-    job_title_short='Data Analyst' AND
-    job_work_from_home=true AND
-    salary_year_avg IS NOT NULL
-GROUP BY
-    skills_dim.skill_id
-HAVING
-    COUNT(skills_job_dim.job_id) > 20
-ORDER BY
-    avg_salary DESC,
-    demand_count DESC
-LIMIT 10;
-```
 | Skills     | Demand Count | Average Salary ($) |
 |------------|--------------|----------------|
 | go         | 27           | 115319.89      |
